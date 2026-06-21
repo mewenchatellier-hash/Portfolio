@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio de Mewen Chatellier</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Roboto:wght@300;400;500;700&display=swap');
+
+        :root {
+            --primary-gradient: linear-gradient(135deg, #e63946 0%, #d62828 100%);
+            --dark-gradient: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            --accent-blue: #0ea5e9;
+            --accent-orange: #f97316;
+            --bg-dark: #0f172a;
+            --bg-light: #f8fafc;
+            --surface: #ffffff;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --border-color: #e2e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+
+        /* ========== NAVIGATION ========== */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.97);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            z-index: 1000;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+            border-bottom: 2px solid transparent;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.97), rgba(255, 255, 255, 0.97)), linear-gradient(90deg, #e63946, #0ea5e9);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .linkedin-link {
+            position: absolute;
+            left: 20px;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .linkedin-logo {
+            width: 32px;
+            height: 32px;
+            fill: #0077b5;
+            transition: fill 0.3s ease, transform 0.3s ease;
+        }
+
+        .linkedin-link:hover .linkedin-logo {
+            fill: #e63946;
+            transform: scale(1.15) rotate(5deg);
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 1.5px;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-gradient);
+            transition: width 0.3s ease;
+        }
+
+        nav ul a:hover {
+            color: #e63946;
+        }
+
+        nav ul a:hover::after {
+            width: 100%;
+        }
+
+        /* ========== SECTIONS GÉNÉRALES ========== */
+        section {
+            padding: 120px 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3.5rem;
+            margin-bottom: 60px;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 800;
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary-gradient);
+            border-radius: 2px;
+        }
+
+        /* ========== ACCUEIL ========== */
+        #accueil {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 20px 100px;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(248, 249, 250, 0.95), rgba(248, 249, 250, 0.95)), 
+                        url('https://images.unsplash.com/photo-1506544777-64cfbeaef565?q=80&w=2000&auto=format&fit=crop') center/cover fixed;
+        }
+
+        #accueil::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 80%, rgba(230, 57, 70, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(14, 165, 233, 0.15) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .video-bg-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .video-bg-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(248, 249, 250, 0.75), rgba(248, 249, 250, 0.65));
+            z-index: 1;
+        }
+
+        .accueil-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 900px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin: 0 auto 30px;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(230, 57, 70, 0.3);
+            border: 5px solid white;
+            overflow: hidden;
+            background: var(--surface);
+        }
+
+        .profile-img::before {
+            content: '';
+            position: absolute;
+            inset: -5px;
+            background: var(--primary-gradient);
+            border-radius: 50%;
+            z-index: -1;
+            animation: spin 8s linear infinite;
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .profile-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .accueil-content h1 {
+            font-size: 4rem;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+            letter-spacing: 2px;
+            animation: slideInDown 0.8s ease-out;
+        }
+
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .accueil-content h2 {
+            font-size: 1.8rem;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 30px;
+        }
+
+        /* ========== MISE EN VALEUR DE L'ACCROCHE (SANS FOND) ========== */
+        .intro-text-container {
+            margin: 40px auto;
+            max-width: 800px;
+            text-align: center;
+        }
+
+        .intro-text-container .quote {
+            font-size: 1.4rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+
+        .intro-text-container .pitch {
+            font-size: 1.15rem;
+            color: var(--text-dark);
+            font-weight: 500;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .intro-text-container .pitch-end {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--accent-blue);
+            margin-top: 30px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        /* ========== BOUTONS ========== */
+        .btn-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 28px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: left 0.3s ease;
+        }
+
+        .btn-link:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary {
+            background: var(--primary-gradient);
+            color: white;
+            box-shadow: 0 8px 25px rgba(230, 57, 70, 0.35);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(230, 57, 70, 0.45);
+        }
+
+        .btn-secondary {
+            background: var(--dark-gradient);
+            color: white;
+            box-shadow: 0 8px 25px rgba(26, 26, 46, 0.35);
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(26, 26, 46, 0.45);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--border-color);
+            color: var(--text-dark);
+        }
+
+        .btn-outline:hover {
+            border-color: #e63946;
+            background: rgba(230, 57, 70, 0.05);
+            box-shadow: 0 8px 25px rgba(230, 57, 70, 0.15);
+        }
+
+        /* ========== EXPERIENCES & FORMATION ========== */
+        .timeline-item {
+            background: var(--surface);
+            padding: 35px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            position: relative;
+            border-left: 4px solid #e63946;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(230, 57, 70, 0.05), transparent);
+            transition: width 0.3s ease;
+            z-index: -1;
+        }
+
+        .timeline-item:hover {
+            transform: translateX(8px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+            border-left-color: #0ea5e9;
+        }
+
+        .timeline-item:hover::before {
+            width: 100%;
+        }
+
+        .timeline-date {
+            display: inline-block;
+            font-weight: 700;
+            background: var(--primary-gradient);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .timeline-item h3 {
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+        }
+
+        .timeline-company {
+            font-weight: 600;
+            color: #0ea5e9;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .timeline-item ul {
+            margin-left: 20px;
+            margin-top: 15px;
+        }
+
+        .timeline-item li {
+            margin-bottom: 12px;
+            color: var(--text-light);
+        }
+
+        /* ========== PROJETS CARDS ========== */
+        .grid-projets {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .projet-card {
+            background: var(--surface);
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid var(--border-color);
+            position: relative;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .projet-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--primary-gradient);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+            z-index: 10;
+        }
+
+        .projet-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 50px rgba(230, 57, 70, 0.25);
+        }
+
+        .projet-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .projet-img {
+            height: 180px;
+            background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+            font-size: 0.95rem;
+        }
+
+        .projet-img::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(230, 57, 70, 0.1), rgba(14, 165, 233, 0.1));
+            z-index: 1;
+        }
+
+        .projet-img span {
+            position: relative;
+            z-index: 2;
+            transition: all 0.4s ease;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .projet-img video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            z-index: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .projet-card:hover .projet-img span {
+            opacity: 0;
+            transform: scale(0.8);
+        }
+
+        .projet-card:hover .projet-img video {
+            opacity: 1;
+        }
+
+        .projet-content {
+            padding: 28px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .projet-content h3 {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+            color: var(--text-dark);
+        }
+
+        .projet-content p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            flex: 1;
+        }
+
+        /* ========== COMPÉTENCES ========== */
+        .skill-category {
+            background: var(--surface);
+            padding: 28px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--border-color);
+        }
+
+        .skill-category:hover {
+            border-left-color: #e63946;
+            box-shadow: 0 8px 25px rgba(230, 57, 70, 0.15);
+            transform: translateX(4px);
+        }
+
+        .skill-category h3 {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+
+        .skill-category p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 12px;
+            font-style: italic;
+        }
+
+        .skill-bar {
+            background: linear-gradient(90deg, #f1f5f9, #e2e8f0);
+            border-radius: 10px;
+            height: 8px;
+            margin-top: 12px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .skill-bar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(230, 57, 70, 0.1), transparent);
+            width: 100%;
+        }
+
+        .skill-progress {
+            background: var(--primary-gradient);
+            height: 100%;
+            border-radius: 10px;
+            animation: growWidth 1.2s ease-out forwards;
+        }
+
+        @keyframes growWidth {
+            from {
+                width: 0 !important;
+            }
+        }
+
+        /* ========== CONTACT ========== */
+        .contact-info {
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--text-light);
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 650px;
+            margin: 0 auto;
+            background: var(--surface);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border-color);
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 15px 18px;
+            background: #f8fafc;
+            border: 2px solid var(--border-color);
+            color: var(--text-dark);
+            border-radius: 8px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #e63946;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.1);
+        }
+
+        input::placeholder, textarea::placeholder {
+            color: #cbd5e1;
+        }
+
+        button[type="submit"] {
+            background: var(--primary-gradient);
+            color: white;
+            border: none;
+            padding: 16px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            border-radius: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(230, 57, 70, 0.35);
+        }
+
+        button[type="submit"]:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 35px rgba(230, 57, 70, 0.45);
+        }
+
+        button[type="submit"]:active {
+            transform: translateY(0);
+        }
+
+        /* ========== FOOTER ========== */
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            background: var(--dark-gradient);
+            color: white;
+            border-top: 2px solid var(--border-color);
+            margin-top: 60px;
+        }
+
+        footer p {
+            font-weight: 500;
+            opacity: 0.9;
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 15px;
+            }
+
+            nav a {
+                font-size: 11px;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+                margin-bottom: 40px;
+            }
+
+            .accueil-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .intro-text-container {
+                padding: 0 15px;
+            }
+
+            .grid-projets {
+                grid-template-columns: 1fr;
+            }
+
+            form {
+                padding: 25px;
+            }
+
+            .timeline-item {
+                padding: 20px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn-link {
+                width: 100%;
+            }
+        }
+
+        /* ========== SCROLLBAR ========== */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-light);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-gradient);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #d62828;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <a href="https://fr.linkedin.com/in/mewen-chatellier-55955b342" target="_blank" class="linkedin-link" title="Mon Profil LinkedIn">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="linkedin-logo">
+                    <path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/>
+                </svg>
+            </a>
+            
+            <ul>
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#profil">Profil</a></li>
+                <li><a href="#experiences">Expériences</a></li>
+                <li><a href="#formation">Formation</a></li>
+                <li><a href="#projets">Réalisations</a></li>
+                <li><a href="#competences">Compétences</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <section id="accueil">
+            <div class="video-bg-container">
+                <video src="video_6_k.mp4" autoplay loop muted playsinline></video>
+                <div class="video-overlay"></div>
+            </div>
+
+            <div class="accueil-content">
+                <div class="profile-img">
+                    <img src="mewen_id_photo.jpg" alt="Portrait de Mewen">
+                </div>
+                <h1>Mewen Chatellier</h1>
+                <h2>Alternant Qualité secteur Métrologie</h2>
+                
+                <div class="intro-text-container">
+                    <p class="quote">
+                        « Dans la course à la qualité, il n'y a pas de ligne d'arrivée. » — David T. Kearns  
+                    </p>
+                    <p class="pitch">
+                        C'est avec cet état d'esprit que j'évolue en tant qu'alternant en qualité. Je suis très intéressé par la métrologie et les contrôles dimensionnels, des opérations d'exigence que je réalise quotidiennement. Travaillant au cœur de l'industrie du sport automobile, j'ai l'habitude de conjuguer rigueur technique et quête de la performance mécanique.
+                    </p>
+                    <p class="pitch-end">
+                        Curieux de voir comment ces compétences se traduisent concrètement ? Venez découvrir mon portfolio juste en dessous !
+                    </p>
+                </div>
+
+                <div class="cta-buttons">
+                    <a href="https://drive.google.com/file/d/1jYTad_iG2Lv04LJiYpohD_uxvkb9bKTc/view?usp=sharing" target="_blank" class="btn-link btn-primary">
+                        ⬇ Télécharger mon CV
+                    </a>
+                    <a href="#contact" class="btn-link btn-secondary">
+                        Contactez-moi
+                    </a>
+                </div>
+            </div>
+        </section>
+
+              <section id="profil">
+            <h2 class="section-title">Mon Profil</h2>
+            <div style="background: var(--surface); padding: 40px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); border-left: 4px solid var(--accent-blue); transition: all 0.3s ease;">
+                <h3 style="font-size: 1.4rem; color: var(--text-dark); margin-bottom: 20px;">Mewen Chatellier</h3>
+                
+                <p style="color: var(--text-light); margin-bottom: 20px; text-align: justify; line-height: 1.8;">
+                    Étudiant en 2ème année de BUT QLIO (Qualité, Logistique Industrielle et Organisation) à l'IUT de Nantes, j'ai développé une solide expertise de terrain grâce à mon alternance dans l'industrie des sports mécaniques. Habitué à manier le pied à coulisse et les bras de mesure, j'aime allier la rigueur de la métrologie à la recherche constante de performance technique sur des pièces de compétition.
+                </p>
+                
+                <p style="color: var(--text-light); margin-bottom: 20px; text-align: justify; line-height: 1.8;">
+                    Très intéressé par l'ingénierie de précision et l'excellence mécanique, mon approche de la qualité est fortement inspirée par la philosophie industrielle japonaise et les principes d'amélioration continue du Lean manufacturing. Sur le terrain, cette rigueur se traduit particulièrement par la gestion minutieuse des pièces prototypes : j'analyse les échantillons initiaux et m'assure du strict respect du cahier des charges technique avant de valider leur conformité pour autoriser un lancement en série.
+                </p>
+
+                <p style="color: var(--text-light); text-align: justify; line-height: 1.8;">
+                    D'un naturel pragmatique, je tire une grande partie de mes valeurs de mes 10 années de pratique du football à un niveau régional. Cet engagement sur le long terme m'a forgé un fort attachement à la cohésion de groupe, à l'entraide et à l'exigence collective, des qualités qui se reflètent directement dans mon environnement professionnel. C'est cette même dynamique d'équipe qui me permet aujourd'hui de m'intégrer, de collaborer efficacement et d'avancer en parfaite synergie avec mes collègues de la qualité sur de nouveaux projets d'industrialisation.
+                </p>
+            </div>
+        </section>
+      
+        <section id="experiences">
+            <h2 class="section-title">Expériences Professionnelles</h2>
+            
+            <div class="timeline-item">
+                <p class="timeline-date">📅 Depuis Septembre 2025</p>
+                <h3>Apprenti en Contrôle Qualité</h3>
+                <p class="timeline-company">🏢 Sodikart</p>
+                <p style="color: var(--text-light); margin-bottom: 15px;">Intégré au sein de l'atelier, je participe activement à la validation et à la conformité des pièces techniques :</p>
+                <ul>
+                    <li>Réalisation d'inspections qualité sur les composants de karting (gammes compétition et location)</li>
+                    <li>Contrôles dimensionnels et métrologie de précision sur des pièces spécifiques</li>
+                    <li>Application des méthodologies d'amélioration continue (Lean Manufacturing, 5S, DMAIC)</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="formation">
+            <h2 class="section-title">Formation</h2>
+            <div class="timeline-item">
+                <p class="timeline-date">📚 Depuis Septembre 2024</p>
+                <h3>BUT QLIO</h3>
+                <p class="timeline-company">🎓 Université de Nantes - IUT Nantes</p>
+                <p style="color: var(--text-light); margin-bottom: 15px;">Organisation des activités de production, gestion des flux physiques et d'information, pilotage par la qualité, méthodologies d'amélioration continue.</p>
+                
+                <div style="margin-top: 20px; display: flex; gap: 15px; flex-wrap: wrap;">
+                    <a href="https://iutnantes.univ-nantes.fr/fr/formations/but-qlio" target="_blank" class="btn-link btn-primary">
+                        Découvrir la formation
+                    </a>
+                    <a href="https://iutnantes.univ-nantes.fr/medias/fichier/but-qlio_1775226754563" target="_blank" class="btn-link btn-outline">
+                        📄 Plaquette BUT QLIO
+                    </a>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <p class="timeline-date">🏆 2024</p>
+                <h3>Baccalauréat Général</h3>
+                <p style="color: var(--text-light);">Spécialités : SVT, SES, Mathématiques</p>
+            </div>
+
+            <h2 class="section-title" style="margin-top: 80px;">Formations Certifiantes</h2>
+            <div class="timeline-item">
+                <p class="timeline-date">🎖 Certification</p>
+                <h3>Lean 6 Sigma Yellow Belt</h3>
+                <p class="timeline-company">Maîtrise des outils d'amélioration continue</p>
+                <p style="color: var(--text-light); margin-bottom: 15px;">Apprentissage des principes du Lean Management, maîtrise du DMAIC, identification des gaspillages et utilisation d'outils de diagnostic (5S, QQOQCCP, etc.).</p>
+                
+                <div style="margin-top: 20px; display: flex; gap: 15px; flex-wrap: wrap;">
+                    <a href="https://www.7-shapes.com/offre/cpf-formation-certifiante-yellow-belt/?" target="_blank" class="btn-link btn-primary">
+                        Découvrir la formation sur 7-Shapes
+                    </a>
+                    <a href="CERTIFICATE_7SHAPES_CHATELLIER_MEWEN_QMI.pdf" target="_blank" class="btn-link btn-outline">
+                        📄 Voir ma certification
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="projets">
+            <h2 class="section-title">Réalisations</h2>
+            <div class="grid-projets">
+                <div class="projet-card">
+                    <div class="projet-img">
+                        <span>CONTRÔLE PIÈCES</span>
+                        <video src="video_2_bdm.mp4" loop muted playsinline></video>
+                    </div>
+                    <div class="projet-content">
+                        <h3>🔍 Contrôle Qualité</h3>
+                        <p>Mise en œuvre de contrôles physiques et dimensionnels rigoureux (dureté, flexion, cintrage) pour garantir la sécurité sur piste.</p>
+                    </div>
+                </div>
+                
+                <div class="projet-card">
+                    <div class="projet-img">
+                        <span>PROCESSUS</span>
+                        <video src="video_5_pr.mp4" loop muted playsinline></video>
+                    </div>
+                    <div class="projet-content">
+                        <h3>📋 Formalisation Industrielle</h3>
+                        <p>Cartographie et modélisation des processus via la rédaction d'instructions détaillées, procédures et logigrammes.</p>
+                    </div>
+                </div>
+                
+                <div class="projet-card">
+                    <div class="projet-img">
+                        <span>COMMUNICATION</span>
+                        <video src="video_3_mtr.mp4" loop muted playsinline></video>
+                    </div>
+                    <div class="projet-content">
+                        <h3>🤝 Assurance Qualité</h3>
+                        <p>Rédaction de cahiers des charges et pilotage de la conformité des échantillons initiaux et pièces prototypes.</p>
+                    </div>
+                </div>
+                
+                <div class="projet-card">
+                    <div class="projet-img">
+                        <span>MODÉLISATION</span>
+                        <video src="video_4_f.mp4" loop muted playsinline></video>
+                    </div>
+                    <div class="projet-content">
+                        <h3>⚙️ Optimisation des Flux</h3>
+                        <p>Utilisation de logiciels de simulation et d'ingénierie (CAO) pour analyser et optimiser les lignes de production.</p>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="section-title" style="margin-top: 80px;">Projet Clé</h2>
+            
+            <div class="timeline-item">
+                <p class="timeline-date">🚀 Industrialisation</p>
+                <h3>
+                    <a href="sr6.html" style="color: inherit; text-decoration: none; transition: color 0.3s ease;" onmouseover="this.style.color='#e63946'" onmouseout="this.style.color='inherit'">
+                        Développement du kart SODIKART SR6
+                    </a>
+                </h3>
+                <p style="color: var(--text-light); margin-bottom: 15px;">Responsable de la validation des composants pour le lancement en série :</p>
+                <ul style="margin-left: 40px;">
+                    <li><strong>Contrôle des Échantillons Initiaux (EI) :</strong> Inspection métrologique rigoureuse de tous les composants</li>
+                    <li><strong>Validation des prototypes :</strong> Vérification stricte de la conformité vis-à-vis du cahier des charges</li>
+                    <li><strong>Acceptation en série :</strong> Validation finale autorisant le lancement de la production</li>
+                </ul>
+                
+                <div style="margin-top: 25px;">
+                    <a href="sr6.html" class="btn-link btn-primary">
+                        Découvrir le projet SR6 en détail
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="competences">
+            <h2 class="section-title">Hard Skills</h2>
+            
+            <div class="skill-category">
+                <h3>📝 Formalisation et documentation</h3>
+                <p>Processus • Rédaction technique • Logigrammes</p>
+                <div class="skill-bar"><div class="skill-progress" style="width: 75%;"></div></div>
+            </div>
+
+            <div class="skill-category">
+                <h3>✅ Gestion de la qualité</h3>
+                <p>Analyse de performance • Indicateurs de qualité • Amélioration continue</p>
+                <div class="skill-bar"><div class="skill-progress" style="width: 60%;"></div></div>
+            </div>
+
+            <div class="skill-category">
+                <h3>📏 Contrôle qualité opérationnel</h3>
+                <p>Gestion des EI • Cahier des charges • Métrologie</p>
+                <div class="skill-bar"><div class="skill-progress" style="width: 50%;"></div></div>
+            </div>
+
+            <h2 class="section-title" style="margin-top: 80px;">Soft Skills</h2>
+            
+            <div class="skill-category">
+                <h3>🛡️ Sens des responsabilités</h3>
+                <p>Fiabilité • Autonomie • Engagement</p>
+                <div class="skill-bar"><div class="skill-progress" style="width: 55%;"></div></div>
+            </div>
+
+            <div class="skill-category">
+                <h3>🗂️ Sens de l'organisation</h3>
+                <p>Rigueur • Méthode • Anticipation</p>
+                <div class="skill-bar"><div class="skill-progress" style="width: 65%;"></div></div>
+            </div>
+
+            <div class="skill-category">
+                <h3>👥 Sens du relationnel</h3>
+                <p>Communication • Entraide • Contact</p>
+                <div class="skill-bar"><div class="skill-progress" style="width: 58%;"></div></div>
+            </div>
+
+            <div style="text-align: center; margin-top: 50px;">
+                <a href="carte.html" class="btn-link btn-primary">
+                    👁️ Découvrir ma carte de compétences
+                </a>
+            </div>
+
+        </section>
+
+        <section id="contact">
+            <h2 class="section-title">Restons en Contact</h2>
+            <div class="contact-info">
+                <p>📧 mewen.chatellier@gmail.com | 📱 06 04 11 26 71 | 📍 44100 Nantes</p>
+            </div>
+        </section>
+    </main>
+            
+    <footer>
+        <p>&copy; 2026 Mewen Chatellier - Portfolio • Tous droits réservés</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const cards = document.querySelectorAll('.projet-card');
+            
+            cards.forEach(card => {
+                const video = card.querySelector('video');
+                if (video) {
+                    card.addEventListener('mouseenter', () => {
+                        video.play().catch(error => console.log("Lecture automatique bloquée par le navigateur"));
+                    });
+                    
+                    card.addEventListener('mouseleave', () => {
+                        video.pause();
+                        video.currentTime = 0;
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
